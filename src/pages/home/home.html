@@ -3,16 +3,38 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>{{instance.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <h3>Participantes</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-list *ngFor='let user of instance.users; let i = index '>
+    <ion-list-header>
+      <ion-badge item-start>{{instance.users[i].name}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]="weights[i]" (ionChange)="change(i)" min="0" max="10">
+        <ion-label range-left> {{weights[i]}}0% </ion-label>
+        <ion-badge range-right>{{proportion[i]}}</ion-badge>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+<!--     <ion-item *ngFor='let user of instance.users; let i = index '>
+
+      <ion-label>{{user.name}} - {{user.contributed}}</ion-label>
+      <ion-range (ionChange)="change(i)" [(ngModel)]="weights[i]" min="0" max="10">
+        <ion-label range-left> {{weights[i]}}0% </ion-label>
+        <ion-label range-right> {{proportion[i]}} </ion-label>
+      </ion-range>
+    </ion-item> -->
+    
+
+  <button (click)="dale()">
+    Dale
+  </button>
+
 </ion-content>
