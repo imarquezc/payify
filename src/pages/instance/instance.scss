@@ -1,0 +1,13 @@
+page-instance {
+	ion-item * {
+		display: flex;
+	}
+
+	.range-slider {
+		flex: 4;
+	}
+
+	ion-range ion-badge {
+		flex: 1;
+	}
+}

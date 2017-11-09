@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{instance.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3>Participantes</h3>
+  <ion-item *ngFor='let user of instance.users; let i = index '>
+    <ion-range [(ngModel)]="weights[i]" (ionChange)="change(i)" min="0" max="10">
+      <ion-badge range-right>{{proportion[i]}}</ion-badge>
+      <ion-badge class="name" range-left>{{instance.users[i].name}}</ion-badge>
+    </ion-range>
+  </ion-item>
+    
+  <button (click)="dale()">
+    Dale
+  </button>
+
+</ion-content>

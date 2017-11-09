@@ -3,38 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{instance.name}}</ion-title>
+    <ion-title>Nueva Instancia!</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3>Participantes</h3>
-
-
-  <ion-list *ngFor='let user of instance.users; let i = index '>
-    <ion-list-header>
-      <ion-badge item-start>{{instance.users[i].name}}</ion-badge>
-    </ion-list-header>
-    <ion-item>
-      <ion-range [(ngModel)]="weights[i]" (ionChange)="change(i)" min="0" max="10">
-        <ion-label range-left> {{weights[i]}}0% </ion-label>
-        <ion-badge range-right>{{proportion[i]}}</ion-badge>
-      </ion-range>
-    </ion-item>
-  </ion-list>
-
-<!--     <ion-item *ngFor='let user of instance.users; let i = index '>
-
-      <ion-label>{{user.name}} - {{user.contributed}}</ion-label>
-      <ion-range (ionChange)="change(i)" [(ngModel)]="weights[i]" min="0" max="10">
-        <ion-label range-left> {{weights[i]}}0% </ion-label>
-        <ion-label range-right> {{proportion[i]}} </ion-label>
-      </ion-range>
-    </ion-item> -->
-    
-
-  <button (click)="dale()">
-    Dale
-  </button>
+  <ion-input type="text"  class="instance-name" placeholder="Nombre de instancia" ></ion-input>
+  <p class="option">Elige un ícono</p>
+  <ion-grid>
+    <ion-row class="categories">
+      <ion-col class="category-icon-wrapper" *ngFor="let category of categories" col-4 [class.selected]="category==selected" (click)="select(category)">
+        <ion-icon class="category-icon" [name]="category" item-start></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

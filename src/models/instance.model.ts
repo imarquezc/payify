@@ -5,6 +5,7 @@ export class Instance {
   public users: User[] = [];
   public spent: number = 0;
   public balances: number[];
+  public icon: string;
 
   constructor(public name: string) {
   }

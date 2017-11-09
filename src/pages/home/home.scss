@@ -1,2 +1,35 @@
 page-home {
+
+	.categories {
+		margin-top: 1em;
+		width: 90%;
+		margin-left: 5%;
+	}
+	.category-icon {
+		line-height: 4rem;
+		font-size: 4rem;
+	}
+
+	.category-icon-wrapper {
+		text-align: center;
+	}
+
+	.category-icon-wrapper.selected {
+		background-color: map-get($colors, danger)
+	}
+
+	.option {
+		font-size: 24px;
+		text-align: center;
+		background-color: white;
+		margin: 0;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+	}
+
+	.instance-name {
+		width: 70%;
+		margin-left: 15%;
+		font-size: 2em;
+	}
 }
